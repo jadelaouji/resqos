@@ -35,17 +35,18 @@ function SectionLabel({ children }) {
   );
 }
 
-function VideoPlayer({ videoId, className = "" }) {
+function VideoPlaceholder({ label, className = "" }) {
   return (
-    <div className={`relative rounded-2xl overflow-hidden border border-white/10 ${className}`}>
-      <iframe
-        className="w-full h-full"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        title="YouTube video"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
+    <div className={`relative bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden flex items-center justify-center group cursor-pointer ${className}`}>
+      <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-transparent" />
+      <div className="absolute inset-0 opacity-10"
+        style={{ backgroundImage: "repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,0.05) 40px,rgba(255,255,255,0.05) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,0.05) 40px,rgba(255,255,255,0.05) 41px)" }} />
+      <div className="relative z-10 flex flex-col items-center gap-3">
+        <div className="w-14 h-14 rounded-full border border-red-500/50 flex items-center justify-center group-hover:border-red-500 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(239,68,68,0.4)]">
+          <Play className="w-5 h-5 text-red-400 ml-1" />
+        </div>
+        <span className="text-xs font-semibold tracking-widest uppercase text-white/40 group-hover:text-white/70 transition-colors">{label}</span>
+      </div>
     </div>
   );
 }
