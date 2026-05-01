@@ -40,15 +40,15 @@ function SectionLabel({ children }) {
 
 function VideoPlaceholder({ label, className = "" }) {
   return (
-    <div className={`relative bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden flex items-center justify-center group cursor-pointer ${className}`}>
+    <div className={`relative bg-gray-100 border border-gray-200 rounded-2xl overflow-hidden flex items-center justify-center group cursor-pointer ${className}`}>
       <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-transparent" />
       <div className="absolute inset-0 opacity-10"
-        style={{ backgroundImage: "repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,0.05) 40px,rgba(255,255,255,0.05) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,0.05) 40px,rgba(255,255,255,0.05) 41px)" }} />
+        style={{ backgroundImage: "repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(0,0,0,0.06) 40px,rgba(0,0,0,0.06) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(0,0,0,0.06) 40px,rgba(0,0,0,0.06) 41px)" }} />
       <div className="relative z-10 flex flex-col items-center gap-3">
         <div className="w-14 h-14 rounded-full border border-red-500/50 flex items-center justify-center group-hover:border-red-500 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(239,68,68,0.4)]">
           <Play className="w-5 h-5 text-red-400 ml-1" />
         </div>
-        <span className="text-xs font-semibold tracking-widest uppercase text-white/40 group-hover:text-white/70 transition-colors">{label}</span>
+        <span className="text-xs font-semibold tracking-widest uppercase text-gray-400 group-hover:text-gray-600 transition-colors">{label}</span>
       </div>
     </div>
   );
@@ -56,7 +56,7 @@ function VideoPlaceholder({ label, className = "" }) {
 
 function HeroVideo({ videoId, className = "" }) {
   return (
-    <div className={`relative bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden ${className}`}>
+    <div className={`relative bg-gray-100 border border-gray-200 rounded-2xl overflow-hidden ${className}`}>
       <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-transparent pointer-events-none z-10" />
       <iframe
         className="w-full h-full"
@@ -73,7 +73,7 @@ function HeroVideo({ videoId, className = "" }) {
 function YouTubeEmbed({ videoId, label = "", className = "" }) {
   const [playing, setPlaying] = useState(false);
   return (
-    <div className={`relative bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden group ${className}`}>
+    <div className={`relative bg-gray-100 border border-gray-200 rounded-2xl overflow-hidden group ${className}`}>
       <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-transparent pointer-events-none z-10" />
       {playing ? (
         <iframe
@@ -94,12 +94,12 @@ function YouTubeEmbed({ videoId, label = "", className = "" }) {
           <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
             <button
               onClick={() => setPlaying(true)}
-              className="w-16 h-16 rounded-full border border-red-500/70 flex items-center justify-center group-hover:border-red-500 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(239,68,68,0.5)] bg-black/40 backdrop-blur-sm"
+              className="w-16 h-16 rounded-full border border-red-500/70 flex items-center justify-center group-hover:border-red-500 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(239,68,68,0.5)] bg-white/70 backdrop-blur-sm"
             >
               <Play className="w-6 h-6 text-red-400 ml-1" />
             </button>
             {label && (
-              <span className="mt-3 text-xs font-semibold tracking-widest uppercase text-white/50 group-hover:text-white/80 transition-colors">{label}</span>
+              <span className="mt-3 text-xs font-semibold tracking-widest uppercase text-gray-500 group-hover:text-gray-700 transition-colors">{label}</span>
             )}
           </div>
         </>
@@ -110,11 +110,11 @@ function YouTubeEmbed({ videoId, label = "", className = "" }) {
 
 function ImagePlaceholder({ label, className = "" }) {
   return (
-    <div className={`relative bg-zinc-900 border border-white/10 rounded-xl overflow-hidden flex items-center justify-center ${className}`}>
-      <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900" />
+    <div className={`relative bg-gray-100 border border-gray-200 rounded-xl overflow-hidden flex items-center justify-center ${className}`}>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-100" />
       <div className="absolute inset-0 opacity-5"
-        style={{ backgroundImage: "repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%)", backgroundSize: "10px 10px" }} />
-      <span className="relative z-10 text-xs font-semibold tracking-widest uppercase text-white/30 px-4 text-center">{label}</span>
+        style={{ backgroundImage: "repeating-linear-gradient(45deg,#fff 0,rgba(0,0,0,0.15) 1px,transparent 0,transparent 50%)", backgroundSize: "10px 10px" }} />
+      <span className="relative z-10 text-xs font-semibold tracking-widest uppercase text-gray-400 px-4 text-center">{label}</span>
     </div>
   );
 }
@@ -140,13 +140,13 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gray-50">
       {/* Ambient background */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-red-900/10 blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-red-100/60 blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-red-800/8 blur-[100px]" />
         <div className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: "repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(255,255,255,0.1) 80px,rgba(255,255,255,0.1) 81px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(255,255,255,0.1) 80px,rgba(255,255,255,0.1) 81px)" }} />
+          style={{ backgroundImage: "repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(0,0,0,0.06) 80px,rgba(0,0,0,0.06) 81px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(0,0,0,0.06) 80px,rgba(0,0,0,0.06) 81px)" }} />
       </div>
 
       <div className="relative z-10 max-w-screen-2xl mx-auto w-full px-6 lg:px-16 pt-28 pb-20">
@@ -164,7 +164,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[clamp(5rem,12vw,10rem)] font-black leading-none tracking-tighter text-white mb-4"
+              className="text-[clamp(5rem,12vw,10rem)] font-black leading-none tracking-tighter text-gray-900 mb-4"
               style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif", letterSpacing: "-0.02em" }}
             >
               Res<span className="text-red-500">Qos</span>
@@ -174,7 +174,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-lg lg:text-xl text-white/60 font-light tracking-wide mb-2"
+              className="text-lg lg:text-xl text-gray-500 font-light tracking-wide mb-2"
             >
               Autonomous Emergency Detection for Remote Environments
             </motion.p>
@@ -183,7 +183,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35 }}
-              className="text-2xl lg:text-3xl font-semibold text-white/90 mb-10 leading-tight"
+              className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-10 leading-tight"
             >
               When Every Second Matters,<br />
               <span className="text-red-400">We Act.</span>
@@ -197,12 +197,12 @@ function HeroSection() {
             >
               <button
                 onClick={() => document.getElementById("demo")?.scrollIntoView({ behavior: "smooth" })}
-                className="px-8 py-4 bg-red-600 hover:bg-red-500 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.5)] text-sm tracking-wide">
+                className="px-8 py-4 bg-red-600 hover:bg-red-500 text-gray-900 font-semibold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(239,68,68,0.5)] text-sm tracking-wide">
                 See How It Works
               </button>
               <button
                 onClick={() => document.getElementById("diagnostics")?.scrollIntoView({ behavior: "smooth" })}
-                className="px-8 py-4 border border-white/20 hover:border-white/50 text-white font-semibold rounded-full transition-all duration-300 backdrop-blur-sm text-sm tracking-wide">
+                className="px-8 py-4 border border-gray-300 hover:border-gray-400 text-gray-900 font-semibold rounded-full transition-all duration-300 backdrop-blur-sm text-sm tracking-wide">
                 View Diagnostics
               </button>
             </motion.div>
@@ -215,7 +215,7 @@ function HeroSection() {
                   initial={{ opacity: 0, scale: 0.8, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7 + v.delay, ease: [0.16, 1, 0.3, 1] }}
-                  className={`relative backdrop-blur-md bg-white/5 border border-white/10 rounded-xl px-4 py-3 ${v.glow} ${v.alert ? "border-red-500/40" : ""}`}
+                  className={`relative backdrop-blur-md bg-gray-100 border border-gray-200 rounded-xl px-4 py-3 ${v.glow} ${v.alert ? "border-red-500/40" : ""}`}
                 >
                   {v.alert && (
                     <motion.div
@@ -226,7 +226,7 @@ function HeroSection() {
                   )}
                   <v.icon className={`w-3.5 h-3.5 ${v.color} mb-1`} />
                   <div className={`text-lg font-black ${v.color} leading-none`}>{v.value}<span className="text-xs ml-0.5">{v.unit}</span></div>
-                  <div className="text-[10px] text-white/40 font-medium tracking-wider uppercase mt-0.5">{v.label}</div>
+                  <div className="text-[10px] text-gray-400 font-medium tracking-wider uppercase mt-0.5">{v.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -241,27 +241,27 @@ function HeroSection() {
           >
             <HeroVideo videoId="3n1w-VYtgFQ" className="w-full h-[420px] lg:h-[520px]" />
             {/* Device mockup overlay */}
-            <div className="absolute -bottom-8 -left-8 w-36 h-48 bg-zinc-900 border border-white/15 rounded-2xl shadow-2xl overflow-hidden">
+            <div className="absolute -bottom-8 -left-8 w-36 h-48 bg-gray-100 border border-gray-200 rounded-2xl shadow-2xl overflow-hidden">
               <div className="h-full flex flex-col items-center justify-center gap-2 p-3">
                 <div className="w-10 h-10 rounded-full border-2 border-red-500/60 flex items-center justify-center">
                   <Heart className="w-5 h-5 text-red-400" />
                 </div>
-                <span className="text-[9px] uppercase tracking-widest text-white/40">Wearable</span>
-                <div className="w-full h-px bg-white/10" />
-                <div className="text-white/70 text-[10px] font-mono">128 bpm</div>
-                <div className="text-white/70 text-[10px] font-mono">91% SpO₂</div>
+                <span className="text-[9px] uppercase tracking-widest text-gray-400">Wearable</span>
+                <div className="w-full h-px bg-gray-200" />
+                <div className="text-gray-600 text-[10px] font-mono">128 bpm</div>
+                <div className="text-gray-600 text-[10px] font-mono">91% SpO₂</div>
                 <div className="w-8 h-1.5 rounded-full bg-red-500/60 animate-pulse" />
               </div>
             </div>
-            <div className="absolute -top-6 -right-6 w-32 h-40 bg-zinc-900 border border-white/15 rounded-2xl shadow-2xl overflow-hidden">
+            <div className="absolute -top-6 -right-6 w-32 h-40 bg-gray-100 border border-gray-200 rounded-2xl shadow-2xl overflow-hidden">
               <div className="h-full flex flex-col items-center justify-center gap-2 p-3">
                 <div className="w-10 h-10 rounded-full border-2 border-blue-500/40 flex items-center justify-center">
                   <Globe className="w-5 h-5 text-blue-400" />
                 </div>
-                <span className="text-[9px] uppercase tracking-widest text-white/40">Satellite</span>
-                <div className="w-full h-px bg-white/10" />
+                <span className="text-[9px] uppercase tracking-widest text-gray-400">Satellite</span>
+                <div className="w-full h-px bg-gray-200" />
                 <div className="text-emerald-400 text-[10px] font-mono">Connected</div>
-                <div className="text-white/50 text-[10px] font-mono">GPS: Active</div>
+                <div className="text-gray-500 text-[10px] font-mono">GPS: Active</div>
                 <div className="w-8 h-1.5 rounded-full bg-emerald-500/60 animate-pulse" />
               </div>
             </div>
@@ -276,9 +276,9 @@ function HeroSection() {
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] tracking-[0.3em] uppercase text-white/30">Scroll</span>
+        <span className="text-[10px] tracking-[0.3em] uppercase text-gray-400">Scroll</span>
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-          <ChevronDown className="w-4 h-4 text-white/30" />
+          <ChevronDown className="w-4 h-4 text-gray-400" />
         </motion.div>
       </motion.div>
     </section>
@@ -296,7 +296,7 @@ function ProblemSection() {
   ];
 
   return (
-    <section id="problem" className="relative py-32 bg-zinc-950" ref={ref}>
+    <section id="problem" className="relative py-32 bg-gray-50" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent" />
       <div className="relative max-w-screen-2xl mx-auto px-6 lg:px-16">
         <motion.div initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0)} className="mb-4">
@@ -304,14 +304,14 @@ function ProblemSection() {
         </motion.div>
         <motion.h2
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1)}
-          className="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter"
+          className="text-5xl lg:text-7xl font-black text-gray-900 mb-6 tracking-tighter"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           The Silent <span className="text-red-500">Danger</span>
         </motion.h2>
         <motion.p
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.2)}
-          className="text-lg text-white/50 max-w-2xl mb-20 leading-relaxed"
+          className="text-lg text-gray-500 max-w-2xl mb-20 leading-relaxed"
         >
           Remote and high-risk environments lack reliable, continuous monitoring and communication.
           When emergencies strike, every passing second without detection or response narrows the window for survival.
@@ -322,14 +322,14 @@ function ProblemSection() {
             <motion.div
               key={s.value}
               initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.15 * i + 0.3)}
-              className="relative group bg-white/[0.03] border border-white/10 rounded-2xl p-8 hover:border-red-500/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(239,68,68,0.08)]"
+              className="relative group bg-gray-100 border border-gray-200 rounded-2xl p-8 hover:border-red-500/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(239,68,68,0.08)]"
             >
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <s.icon className="w-7 h-7 text-red-500/70 mb-6" />
-              <div className="text-5xl lg:text-6xl font-black text-white mb-3 tracking-tighter" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <div className="text-5xl lg:text-6xl font-black text-gray-900 mb-3 tracking-tighter" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 {s.value}
               </div>
-              <p className="text-sm text-white/40 leading-relaxed">{s.label}</p>
+              <p className="text-sm text-gray-400 leading-relaxed">{s.label}</p>
             </motion.div>
           ))}
         </div>
@@ -343,9 +343,9 @@ function SolutionSection() {
   const { ref, inView } = useSection();
 
   return (
-    <section id="solution" className="relative py-32 bg-black" ref={ref}>
+    <section id="solution" className="relative py-32 bg-white" ref={ref}>
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-red-900/6 blur-[150px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-red-50/60 blur-[150px] rounded-full" />
       </div>
       <div className="relative max-w-screen-2xl mx-auto px-6 lg:px-16">
         <motion.div initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0)} className="mb-4">
@@ -353,7 +353,7 @@ function SolutionSection() {
         </motion.div>
         <motion.h2
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1)}
-          className="text-5xl lg:text-7xl font-black text-white mb-20 tracking-tighter"
+          className="text-5xl lg:text-7xl font-black text-gray-900 mb-20 tracking-tighter"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Dual-Device <span className="text-red-500">Intelligence</span>
@@ -363,20 +363,20 @@ function SolutionSection() {
           {/* Wearable */}
           <motion.div
             initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.2)}
-            className="relative backdrop-blur-md bg-white/[0.04] border border-white/10 rounded-3xl p-10 hover:border-red-500/20 transition-all duration-500 group"
+            className="relative backdrop-blur-md bg-gray-100 border border-gray-200 rounded-3xl p-10 hover:border-red-500/20 transition-all duration-500 group"
           >
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-red-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative z-10">
               <div className="w-14 h-14 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6">
                 <Heart className="w-7 h-7 text-red-400" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Wearable Unit</h3>
-              <p className="text-white/50 text-sm mb-8 leading-relaxed">Continuously monitors the wearer's physiological state, triggering local alerts and communicating with the environmental unit.</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Wearable Unit</h3>
+              <p className="text-gray-500 text-sm mb-8 leading-relaxed">Continuously monitors the wearer's physiological state, triggering local alerts and communicating with the environmental unit.</p>
               <div className="space-y-3">
                 {["Heart Rate (MAX30102)", "SpO₂ Pulse Oximetry", "Body Temperature (MCP9808)", "Fall & Motion Detection (LIS3DH)", "Dehydration Indicators"].map(f => (
                   <div key={f} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
-                    <span className="text-sm text-white/60">{f}</span>
+                    <span className="text-sm text-gray-500">{f}</span>
                   </div>
                 ))}
               </div>
@@ -411,20 +411,20 @@ function SolutionSection() {
           {/* Environmental */}
           <motion.div
             initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.3)}
-            className="relative backdrop-blur-md bg-white/[0.04] border border-white/10 rounded-3xl p-10 hover:border-blue-500/20 transition-all duration-500 group"
+            className="relative backdrop-blur-md bg-gray-100 border border-gray-200 rounded-3xl p-10 hover:border-blue-500/20 transition-all duration-500 group"
           >
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative z-10">
               <div className="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6">
                 <Globe className="w-7 h-7 text-blue-400" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Environmental Unit</h3>
-              <p className="text-white/50 text-sm mb-8 leading-relaxed">Scans the surrounding environment for atmospheric hazards and manages satellite communication for emergency dispatch.</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Environmental Unit</h3>
+              <p className="text-gray-500 text-sm mb-8 leading-relaxed">Scans the surrounding environment for atmospheric hazards and manages satellite communication for emergency dispatch.</p>
               <div className="space-y-3">
                 {["Temperature & Humidity (BME688)", "Gas & CO Detection (MQ-7)", "Ambient Oxygen (ME2-O2)", "GPS Location Tracking", "Iridium Satellite (RockBLOCK 9704)"].map(f => (
                   <div key={f} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
-                    <span className="text-sm text-white/60">{f}</span>
+                    <span className="text-sm text-gray-500">{f}</span>
                   </div>
                 ))}
               </div>
@@ -456,14 +456,14 @@ function SystemFlowSection() {
   };
 
   return (
-    <section className="relative py-32 bg-zinc-950" ref={ref}>
+    <section className="relative py-32 bg-gray-50" ref={ref}>
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
         <motion.div initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0)} className="mb-4">
           <SectionLabel>System Flow</SectionLabel>
         </motion.div>
         <motion.h2
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1)}
-          className="text-5xl lg:text-7xl font-black text-white mb-20 tracking-tighter"
+          className="text-5xl lg:text-7xl font-black text-gray-900 mb-20 tracking-tighter"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           From Sensor to <span className="text-red-500">Responder</span>
@@ -488,7 +488,7 @@ function SystemFlowSection() {
                     <step.icon className={`w-6 h-6 ${c.icon}`} />
                   </motion.div>
                   <div>
-                    <div className="text-xs font-bold text-white leading-tight">{step.label}</div>
+                    <div className="text-xs font-bold text-gray-900 leading-tight">{step.label}</div>
                     <div className={`text-[10px] ${c.icon} mt-1 font-medium`}>{step.sub}</div>
                   </div>
                   <div className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full ${c.dot}`} />
@@ -502,7 +502,7 @@ function SystemFlowSection() {
                   >
                     <div className="flex-1 h-px bg-gradient-to-r from-white/20 to-white/10" />
                     <motion.div animate={{ x: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-                      <ArrowRight className="w-4 h-4 text-white/30 flex-shrink-0" />
+                      <ArrowRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
                     </motion.div>
                   </motion.div>
                 )}
@@ -573,14 +573,14 @@ function DiagnosticsSection() {
   const c = colorMap[d.color];
 
   return (
-    <section id="diagnostics" className="relative py-32 bg-black" ref={ref}>
+    <section id="diagnostics" className="relative py-32 bg-white" ref={ref}>
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
         <motion.div initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0)} className="mb-4">
           <SectionLabel>Emergency Diagnostics</SectionLabel>
         </motion.div>
         <motion.h2
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1)}
-          className="text-5xl lg:text-7xl font-black text-white mb-16 tracking-tighter"
+          className="text-5xl lg:text-7xl font-black text-gray-900 mb-16 tracking-tighter"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Four Critical <span className="text-red-500">Scenarios</span>
@@ -594,7 +594,7 @@ function DiagnosticsSection() {
               <button
                 key={diag.title}
                 onClick={() => setActive(i)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-xl border text-sm font-semibold transition-all duration-300 ${active === i ? `${tc.bg} ${tc.border} ${tc.accent} ${tc.glow}` : "bg-white/[0.03] border-white/10 text-white/40 hover:text-white/70 hover:border-white/20"}`}
+                className={`flex items-center gap-2 px-5 py-3 rounded-xl border text-sm font-semibold transition-all duration-300 ${active === i ? `${tc.bg} ${tc.border} ${tc.accent} ${tc.glow}` : "bg-gray-100 border-gray-200 text-gray-400 hover:text-gray-600 hover:border-gray-300"}`}
               >
                 <diag.icon className="w-4 h-4" />
                 {diag.title}
@@ -620,15 +620,15 @@ function DiagnosticsSection() {
                   </div>
                   <h3 className={`text-3xl font-black ${c.accent}`}>{d.title}</h3>
                 </div>
-                <p className="text-white/60 text-base leading-relaxed mb-8">{d.desc}</p>
+                <p className="text-gray-500 text-base leading-relaxed mb-8">{d.desc}</p>
                 <div className="space-y-4">
                   <div>
-                    <div className="text-[10px] uppercase tracking-widest text-white/30 mb-2 font-semibold">Trigger Condition</div>
+                    <div className="text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-semibold">Trigger Condition</div>
                     <div className={`text-sm font-medium ${c.accent} border ${c.border} ${c.bg} px-4 py-3 rounded-xl`}>{d.trigger}</div>
                   </div>
                   <div>
-                    <div className="text-[10px] uppercase tracking-widest text-white/30 mb-2 font-semibold">Sensors Involved</div>
-                    <div className="text-sm text-white/60 border border-white/10 bg-white/5 px-4 py-3 rounded-xl font-mono">{d.sensors}</div>
+                    <div className="text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-semibold">Sensors Involved</div>
+                    <div className="text-sm text-gray-500 border border-gray-200 bg-gray-100 px-4 py-3 rounded-xl font-mono">{d.sensors}</div>
                   </div>
                 </div>
               </div>
@@ -647,14 +647,14 @@ function DemoSection() {
   const steps = ["Detect", "Warn User", "Wait for Response", "Escalate", "Satellite SOS Sent"];
 
   return (
-    <section id="demo" className="relative py-32 bg-zinc-950" ref={ref}>
+    <section id="demo" className="relative py-32 bg-gray-50" ref={ref}>
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
         <motion.div initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0)} className="mb-4">
           <SectionLabel>System Demo</SectionLabel>
         </motion.div>
         <motion.h2
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1)}
-          className="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter"
+          className="text-5xl lg:text-7xl font-black text-gray-900 mb-6 tracking-tighter"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           See It in <span className="text-red-500">Action</span>
@@ -671,12 +671,12 @@ function DemoSection() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: i * 0.1 + 0.3 }}
-                className="flex items-center gap-2 bg-white/[0.04] border border-white/10 rounded-full px-4 py-2"
+                className="flex items-center gap-2 bg-gray-100 border border-gray-200 rounded-full px-4 py-2"
               >
                 <span className="w-5 h-5 rounded-full bg-red-500/20 border border-red-500/40 flex items-center justify-center text-[10px] text-red-400 font-bold flex-shrink-0">{i + 1}</span>
-                <span className="text-sm text-white/70 font-medium whitespace-nowrap">{s}</span>
+                <span className="text-sm text-gray-600 font-medium whitespace-nowrap">{s}</span>
               </motion.div>
-              {i < steps.length - 1 && <ArrowRight className="w-3 h-3 text-white/20 flex-shrink-0" />}
+              {i < steps.length - 1 && <ArrowRight className="w-3 h-3 text-gray-300 flex-shrink-0" />}
             </div>
           ))}
         </motion.div>
@@ -703,9 +703,9 @@ function SatelliteSection() {
   ];
 
   return (
-    <section className="relative py-32 bg-black overflow-hidden" ref={ref}>
+    <section className="relative py-32 bg-white overflow-hidden" ref={ref}>
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-blue-900/5 blur-[150px] rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-blue-50/60 blur-[150px] rounded-full" />
       </div>
       <div className="relative max-w-screen-2xl mx-auto px-6 lg:px-16">
         <motion.div initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0)} className="mb-4">
@@ -713,7 +713,7 @@ function SatelliteSection() {
         </motion.div>
         <motion.h2
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1)}
-          className="text-5xl lg:text-7xl font-black text-white mb-20 tracking-tighter"
+          className="text-5xl lg:text-7xl font-black text-gray-900 mb-20 tracking-tighter"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Global <span className="text-red-500">Reach</span>
@@ -729,17 +729,17 @@ function SatelliteSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: i * 0.12 + 0.3 }}
-                  className="flex flex-col items-center gap-2 bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-center min-w-[90px]"
+                  className="flex flex-col items-center gap-2 bg-gray-100 border border-gray-200 rounded-2xl px-5 py-4 text-center min-w-[90px]"
                 >
                   <Icon className="w-5 h-5 text-blue-400" />
-                  <span className="text-xs text-white/60 font-medium">{node}</span>
+                  <span className="text-xs text-gray-500 font-medium">{node}</span>
                 </motion.div>
                 {i < flow.length - 1 && (
                   <motion.div
                     animate={{ x: [0, 4, 0] }}
                     transition={{ repeat: Infinity, duration: 1.5, delay: i * 0.2 }}
                   >
-                    <ArrowRight className="w-4 h-4 text-white/20" />
+                    <ArrowRight className="w-4 h-4 text-gray-300" />
                   </motion.div>
                 )}
               </div>
@@ -752,13 +752,13 @@ function SatelliteSection() {
             <motion.div
               key={h.label}
               initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1 * i + 0.3)}
-              className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:border-blue-500/20 transition-all duration-300"
+              className="bg-gray-100 border border-gray-200 rounded-2xl p-6 hover:border-blue-500/20 transition-all duration-300"
             >
               <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
                 <h.icon className="w-5 h-5 text-blue-400" />
               </div>
-              <div className="text-sm font-bold text-white mb-2">{h.label}</div>
-              <div className="text-xs text-white/40 leading-relaxed">{h.desc}</div>
+              <div className="text-sm font-bold text-gray-900 mb-2">{h.label}</div>
+              <div className="text-xs text-gray-400 leading-relaxed">{h.desc}</div>
             </motion.div>
           ))}
         </div>
@@ -772,9 +772,9 @@ function HardwareSection() {
   const { ref, inView } = useSection();
 
   return (
-    <section id="hardware" className="relative py-32 bg-zinc-950" ref={ref}>
+    <section id="hardware" className="relative py-32 bg-gray-50" ref={ref}>
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-red-900/6 blur-[160px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-red-50/60 blur-[160px] rounded-full" />
       </div>
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
         <motion.div initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0)} className="mb-4">
@@ -782,14 +782,14 @@ function HardwareSection() {
         </motion.div>
         <motion.h2
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1)}
-          className="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter"
+          className="text-5xl lg:text-7xl font-black text-gray-900 mb-6 tracking-tighter"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Dual <span className="text-red-500">Sensing</span> System
         </motion.h2>
         <motion.p
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.15)}
-          className="text-lg text-white/50 max-w-2xl mb-20 leading-relaxed"
+          className="text-lg text-gray-500 max-w-2xl mb-20 leading-relaxed"
         >
           Two purpose-built devices working in tandem — one worn on the body, one deployed in the field — 
           to deliver complete physiological and environmental awareness.
@@ -799,7 +799,7 @@ function HardwareSection() {
           {/* Environmental Unit */}
           <motion.div
             initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.2)}
-            className="group relative bg-white/[0.03] border border-white/10 rounded-3xl overflow-hidden hover:border-red-500/25 transition-all duration-500 hover:shadow-[0_0_60px_rgba(239,68,68,0.08)]"
+            className="group relative bg-gray-100 border border-gray-200 rounded-3xl overflow-hidden hover:border-red-500/25 transition-all duration-500 hover:shadow-[0_0_60px_rgba(239,68,68,0.08)]"
           >
             <div className="relative h-72 overflow-hidden">
               <img
@@ -807,16 +807,16 @@ function HardwareSection() {
                 alt="Environmental Unit"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-zinc-950/20 to-transparent" />
               <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase bg-black/60 backdrop-blur-sm border border-white/10 text-blue-400 px-3 py-1.5 rounded-full">
+                <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase bg-gray-100/80 backdrop-blur-sm border border-gray-200 text-blue-400 px-3 py-1.5 rounded-full">
                   <Globe className="w-3 h-3" /> Environmental Unit
                 </span>
               </div>
             </div>
             <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-3">Field Station</h3>
-              <p className="text-white/50 text-sm mb-6 leading-relaxed">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Field Station</h3>
+              <p className="text-gray-500 text-sm mb-6 leading-relaxed">
                 A ruggedized 3D-printed enclosure housing the Iridium 9704 satellite modem alongside atmospheric sensors. 
                 Deployed in the field to scan ambient conditions and relay emergency data globally.
               </p>
@@ -824,7 +824,7 @@ function HardwareSection() {
                 {["BME688 (Temp/Humidity)", "ME2-O2 (Ambient O₂)", "MQ-7 (CO Detection)", "GPS Module", "RockBLOCK 9704", "nRF52840 MCU"].map(item => (
                   <div key={item} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
-                    <span className="text-xs text-white/55 font-mono">{item}</span>
+                    <span className="text-xs text-gray-500 font-mono">{item}</span>
                   </div>
                 ))}
               </div>
@@ -834,7 +834,7 @@ function HardwareSection() {
           {/* Wearable Unit */}
           <motion.div
             initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.3)}
-            className="group relative bg-white/[0.03] border border-white/10 rounded-3xl overflow-hidden hover:border-red-500/25 transition-all duration-500 hover:shadow-[0_0_60px_rgba(239,68,68,0.08)]"
+            className="group relative bg-gray-100 border border-gray-200 rounded-3xl overflow-hidden hover:border-red-500/25 transition-all duration-500 hover:shadow-[0_0_60px_rgba(239,68,68,0.08)]"
           >
             <div className="relative h-72 overflow-hidden">
               <img
@@ -842,16 +842,16 @@ function HardwareSection() {
                 alt="Wearable Unit"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-zinc-950/20 to-transparent" />
               <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase bg-black/60 backdrop-blur-sm border border-white/10 text-red-400 px-3 py-1.5 rounded-full">
+                <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase bg-gray-100/80 backdrop-blur-sm border border-gray-200 text-red-400 px-3 py-1.5 rounded-full">
                   <Heart className="w-3 h-3" /> Wearable Unit
                 </span>
               </div>
             </div>
             <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-3">Wrist-Worn Monitor</h3>
-              <p className="text-white/50 text-sm mb-6 leading-relaxed">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Wrist-Worn Monitor</h3>
+              <p className="text-gray-500 text-sm mb-6 leading-relaxed">
                 A custom PCB encased in a 3D-printed wrist form factor. Continuously tracks the wearer's 
                 biometrics and transmits alerts to the environmental unit via BLE.
               </p>
@@ -859,7 +859,7 @@ function HardwareSection() {
                 {["MAX30102 (HR/SpO₂)", "MCP9808 (Body Temp)", "LIS3DH (Accelerometer)", "OLED Display", "BLE Radio", "nRF52840 MCU"].map(item => (
                   <div key={item} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
-                    <span className="text-xs text-white/55 font-mono">{item}</span>
+                    <span className="text-xs text-gray-500 font-mono">{item}</span>
                   </div>
                 ))}
               </div>
@@ -883,14 +883,14 @@ function ComparisonSection() {
   const cols = ["GPS + Location", "Satellite Connection", "Environmental Data", "Biometric Tracking", "Autonomous SOS", "Diagnosis"];
 
   return (
-    <section className="relative py-32 bg-black" ref={ref}>
+    <section className="relative py-32 bg-white" ref={ref}>
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
         <motion.div initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0)} className="mb-4">
           <SectionLabel>Competitive Comparison</SectionLabel>
         </motion.div>
         <motion.h2
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1)}
-          className="text-5xl lg:text-7xl font-black text-white mb-20 tracking-tighter"
+          className="text-5xl lg:text-7xl font-black text-gray-900 mb-20 tracking-tighter"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           Why <span className="text-red-500">ResQos</span>
@@ -903,9 +903,9 @@ function ComparisonSection() {
           <table className="w-full min-w-[700px]">
             <thead>
               <tr>
-                <th className="text-left py-4 pr-6 text-white/40 text-xs uppercase tracking-widest font-semibold w-48">Device</th>
+                <th className="text-left py-4 pr-6 text-gray-400 text-xs uppercase tracking-widest font-semibold w-48">Device</th>
                 {cols.map(col => (
-                  <th key={col} className="text-center py-4 px-3 text-white/40 text-xs uppercase tracking-widest font-semibold">{col}</th>
+                  <th key={col} className="text-center py-4 px-3 text-gray-400 text-xs uppercase tracking-widest font-semibold">{col}</th>
                 ))}
               </tr>
             </thead>
@@ -918,11 +918,11 @@ function ComparisonSection() {
                   transition={{ delay: ri * 0.1 + 0.4 }}
                   className={`border-t transition-all duration-300 ${row.highlight
                     ? "border-red-500/30 bg-red-500/[0.06] shadow-[0_0_40px_rgba(239,68,68,0.08)]"
-                    : "border-white/[0.06] hover:bg-white/[0.02]"
+                    : "border-gray-200 hover:bg-gray-50"
                     }`}
                 >
                   <td className="py-5 pr-6">
-                    <div className={`font-semibold text-sm ${row.highlight ? "text-red-400" : "text-white/60"}`}>
+                    <div className={`font-semibold text-sm ${row.highlight ? "text-red-400" : "text-gray-500"}`}>
                       {row.name}
                       {row.highlight && <span className="ml-2 text-[10px] bg-red-500/20 border border-red-500/40 text-red-400 px-2 py-0.5 rounded-full uppercase tracking-widest">Our Solution</span>}
                     </div>
@@ -931,7 +931,7 @@ function ComparisonSection() {
                     <td key={fi} className="text-center py-5 px-3">
                       {has
                         ? <Check className={`w-5 h-5 mx-auto ${row.highlight ? "text-red-400" : "text-emerald-500/70"}`} />
-                        : <X className="w-4 h-4 mx-auto text-white/15" />
+                        : <X className="w-4 h-4 mx-auto text-gray-300" />
                       }
                     </td>
                   ))}
@@ -950,9 +950,9 @@ function FooterSection() {
   const { ref, inView } = useSection();
 
   return (
-    <footer id="team" className="relative py-32 bg-zinc-950 overflow-hidden" ref={ref}>
+    <footer id="team" className="relative py-32 bg-gray-50 overflow-hidden" ref={ref}>
       <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-red-900/8 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-red-50/80 blur-[120px] rounded-full" />
       </div>
 
       <div className="relative max-w-screen-2xl mx-auto px-6 lg:px-16">
@@ -969,43 +969,43 @@ function FooterSection() {
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.1)}
           className="text-center mb-20"
         >
-          <p className="text-2xl lg:text-4xl font-light text-white/60 max-w-3xl mx-auto leading-relaxed italic">
+          <p className="text-2xl lg:text-4xl font-light text-gray-500 max-w-3xl mx-auto leading-relaxed italic">
             "Built for the moments when no signal,<br />
-            <span className="text-white font-semibold not-italic">no help, and no time remain.</span>"
+            <span className="text-gray-900 font-semibold not-italic">no help, and no time remain.</span>"
           </p>
         </motion.div>
 
         {/* Team info */}
         <motion.div
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.2)}
-          className="grid lg:grid-cols-3 gap-8 border-t border-white/10 pt-12"
+          className="grid lg:grid-cols-3 gap-8 border-t border-gray-200 pt-12"
         >
           <div>
-            <div className="text-3xl font-black text-white mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <div className="text-3xl font-black text-gray-900 mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Res<span className="text-red-500">Qos</span>
             </div>
-            <div className="text-sm text-white/40">Autonomous Emergency Detection System</div>
+            <div className="text-sm text-gray-400">Autonomous Emergency Detection System</div>
           </div>
           <div className="space-y-2">
-            <div className="text-sm font-bold text-white">Team 14</div>
-            <div className="text-sm text-white/50">University of Massachusetts Amherst</div>
-            <div className="text-sm text-white/50">ECE 415 / ECE 416 · Senior Design 2026</div>
+            <div className="text-sm font-bold text-gray-900">Team 14</div>
+            <div className="text-sm text-gray-500">University of Massachusetts Amherst</div>
+            <div className="text-sm text-gray-500">ECE 415 / ECE 416 · Senior Design 2026</div>
           </div>
           <div className="space-y-2">
-            <div className="text-xs uppercase tracking-widest text-white/30 font-semibold mb-3">Faculty Advisor</div>
-            <div className="text-sm text-white font-semibold">Prof. Nikhil Saxena</div>
-            <div className="text-sm text-white/40">Department of Electrical & Computer Engineering</div>
+            <div className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-3">Faculty Advisor</div>
+            <div className="text-sm text-gray-900 font-semibold">Prof. Nikhil Saxena</div>
+            <div className="text-sm text-gray-400">Department of Electrical & Computer Engineering</div>
           </div>
         </motion.div>
 
         <motion.div
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0.3)}
-          className="mt-12 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row justify-between items-center gap-4"
+          className="mt-12 pt-6 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4"
         >
-          <div className="text-xs text-white/20">© 2026 ResQos · UMass Amherst ECE Senior Design</div>
+          <div className="text-xs text-gray-300">© 2026 ResQos · UMass Amherst ECE Senior Design</div>
           <div className="flex items-center gap-2">
             <GlowDot />
-            <span className="text-xs text-white/30 font-mono">SYSTEM ONLINE</span>
+            <span className="text-xs text-gray-400 font-mono">SYSTEM ONLINE</span>
           </div>
         </motion.div>
       </div>
@@ -1027,13 +1027,13 @@ function Nav() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-black/80 backdrop-blur-xl border-b border-white/[0.06]" : ""}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-white/90 backdrop-blur-xl border-b border-gray-200" : ""}`}
     >
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-16 h-16 flex items-center justify-between">
-        <div className="text-xl font-black text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+        <div className="text-xl font-black text-gray-900" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
           Res<span className="text-red-500">Qos</span>
         </div>
-        <div className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase text-white/40">
+        <div className="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase text-gray-400">
           {[
             { label: "Problem", id: "problem" },
             { label: "Solution", id: "solution" },
@@ -1044,13 +1044,13 @@ function Nav() {
             <button
               key={label}
               onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })}
-              className="hover:text-white transition-colors"
+              className="hover:text-gray-900 transition-colors"
             >{label}</button>
           ))}
         </div>
         <div className="flex items-center gap-2">
           <GlowDot />
-          <span className="text-[10px] text-white/30 font-mono hidden sm:block">LIVE</span>
+          <span className="text-[10px] text-gray-400 font-mono hidden sm:block">LIVE</span>
         </div>
       </div>
     </motion.nav>
@@ -1060,14 +1060,14 @@ function Nav() {
 // ── Root ──────────────────────────────────────────────────────────────────────
 export default function ResQosLandingPage() {
   return (
-    <div className="bg-black text-white overflow-x-hidden" style={{ fontFamily: "'DM Sans', 'Inter', sans-serif" }}>
+    <div className="bg-white text-gray-900 overflow-x-hidden" style={{ fontFamily: "'DM Sans', 'Inter', sans-serif" }}>
       {/* Google Fonts */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
         html { scroll-behavior: smooth; }
         * { box-sizing: border-box; }
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-track { background: #f9fafb; }
         ::-webkit-scrollbar-thumb { background: #ef4444; border-radius: 2px; }
       `}</style>
 
