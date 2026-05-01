@@ -51,6 +51,44 @@ function VideoPlaceholder({ label, className = "" }) {
   );
 }
 
+function YouTubeEmbed({ videoId, label = "", className = "" }) {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div className={`relative bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden group ${className}`}>
+      <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-transparent pointer-events-none z-10" />
+      {playing ? (
+        <iframe
+          className="w-full h-full"
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+          title={label}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      ) : (
+        <>
+          <img
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            alt={label}
+            className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+          />
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
+            <button
+              onClick={() => setPlaying(true)}
+              className="w-16 h-16 rounded-full border border-red-500/70 flex items-center justify-center group-hover:border-red-500 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(239,68,68,0.5)] bg-black/40 backdrop-blur-sm"
+            >
+              <Play className="w-6 h-6 text-red-400 ml-1" />
+            </button>
+            {label && (
+              <span className="mt-3 text-xs font-semibold tracking-widest uppercase text-white/50 group-hover:text-white/80 transition-colors">{label}</span>
+            )}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 function ImagePlaceholder({ label, className = "" }) {
   return (
     <div className={`relative bg-zinc-900 border border-white/10 rounded-xl overflow-hidden flex items-center justify-center ${className}`}>
@@ -178,7 +216,7 @@ function HeroSection() {
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <VideoPlaceholder label="HERO VIDEO" className="w-full h-[420px] lg:h-[520px]" />
+            <YouTubeEmbed videoId="3n1w-VYtgFQ" label="INTRO VIDEO" className="w-full h-[420px] lg:h-[520px]" />
             {/* Device mockup overlay */}
             <div className="absolute -bottom-8 -left-8 w-36 h-48 bg-zinc-900 border border-white/15 rounded-2xl shadow-2xl overflow-hidden">
               <div className="h-full flex flex-col items-center justify-center gap-2 p-3">
@@ -466,6 +504,7 @@ function DiagnosticsSection() {
       trigger: "Sudden acceleration + impact + prolonged inactivity",
       sensors: "LIS3DH Accelerometer",
       video: "FALL DETECTION VIDEO",
+      videoId: "5Q5fcITdFUk",
       desc: "Detects sudden falls via 3-axis acceleration thresholds and confirms emergency via extended inactivity timeout.",
     },
     {
@@ -475,6 +514,7 @@ function DiagnosticsSection() {
       trigger: "Critical environmental temp + body temp + elevated heart rate",
       sensors: "BME688, MCP9808, MAX30102",
       video: "HEAT STROKE VIDEO",
+      videoId: "C9qgKHtRHnE",
       desc: "Multi-sensor fusion combining ambient heat, skin temperature, and cardiac stress markers.",
     },
     {
@@ -484,6 +524,7 @@ function DiagnosticsSection() {
       trigger: "Low SpO₂ + high heart rate or critical ambient O₂",
       sensors: "MAX30102, ME2-O2",
       video: "HYPOXIA VIDEO",
+      videoId: "x07q6mg-Tes",
       desc: "Cross-references blood oxygen saturation with atmospheric oxygen levels to differentiate physiological from environmental cause.",
     },
     {
@@ -493,6 +534,7 @@ function DiagnosticsSection() {
       trigger: "Body temperature at warning or critical threshold",
       sensors: "MCP9808 Temperature Sensor",
       video: "HYPOTHERMIA VIDEO",
+      videoId: "eBb7Oszxw6k",
       desc: "Continuous core temperature monitoring with configurable warning and critical alert thresholds.",
     },
   ];
@@ -568,7 +610,7 @@ function DiagnosticsSection() {
                 </div>
               </div>
             </div>
-            <VideoPlaceholder label={d.video} className="h-72 lg:h-auto" />
+            <YouTubeEmbed videoId={d.videoId} label={d.video} className="h-72 lg:h-auto" />
           </motion.div>
         </AnimatePresence>
       </div>
