@@ -1,16 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import {
-import teamImg from "./assets/team.png";
-import envImg from "./assets/environmental.png";
-import wearImg from "./assets/wearable.png";
-
-
-
   Heart, Activity, Thermometer, Wind, Satellite, Shield, Zap, MapPin,
   AlertTriangle, ChevronDown, ArrowRight, Cpu, Radio, Globe, Users,
   Check, X, Play, Wifi, Battery, Signal
 } from "lucide-react";
+import teamImg from "./assets/team.png";
+import envImg from "./assets/environmental.png";
+import wearImg from "./assets/wearable.png";
 
 // ── Utility ──────────────────────────────────────────────────────────────────
 const fadeUp = (delay = 0) => ({
