@@ -961,7 +961,7 @@ function FooterSection() {
           initial="hidden" animate={inView ? "visible" : "hidden"} variants={fadeUp(0)}
           className="mb-20"
         >
-          <img src={teamImg} alt="ResQos Team" className="w-full rounded-2xl" />
+          <img src={teamImg} alt="ResQos Team" className="w-full h-120 lg:h-80 object-cover rounded-2xl" />
         </motion.div>
 
         {/* CTA */}
