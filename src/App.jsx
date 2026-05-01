@@ -916,7 +916,7 @@ function ComparisonSection() {
                   <td className="py-5 pr-6">
                     <div className={`font-semibold text-sm ${row.highlight ? "text-red-600" : "text-[#6B6760]"}`}>
                       {row.name}
-                      {row.highlight && <span className="ml-2 text-[10px] bg-red-500/20 border border-red-500/40 text-red-400 px-2 py-0.5 rounded-full uppercase tracking-widest">Our Solution</span>}
+                      {row.highlight && <span className="ml-2 text-[10px] bg-red-500/20 border border-green-500/40 text-green-400 px-2 py-0.5 rounded-full uppercase tracking-widest">Our Solution</span>}
                     </div>
                   </td>
                   {row.features.map((has, fi) => (
